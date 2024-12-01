@@ -1,77 +1,27 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/Y0f03qEq)
-# Instruktioner
+# Projekbeskrivning
 
-Denna uppgift går ut på att du bygga vidare uppgift u01 - Portfoliosida utifrån designskiss med Javascript. Du är nu fri att ändra till egen design / layout, samt eget innehåll. Det är dock viktigt att du behåller en sektion för CV ("About me") och en sektion med projekt ("Projects") eftersom du ska vidareutveckla sidan med Javascript på dessa sektioner. 
+Jag har valt att börja om på en ny sida istället för att vidareutveckla från våran u01-skiss vi gick efter. Den är väldigt basic och innehåller ungefär samma form av flikar med lite annorlunda styling och struktur. Det finns en hel del javascript implementerat och massor av HTML som både genereras och manipuleras via JS. Sidan är responsiv med 2st brytpunkter. På grund av tidsbrist så har jag inte prioriterat styling, SEO, prestanda eller sett det som en portfolio att använda privat i framtiden. Utan jag har valt att bygga sidan baserat på de punkter som stod i uppgiftsbeskrivningen och sett till att den funktionalitet som efterfrågas finns. Jag har som interaktiva Javascript-moment dels en hover-knapp över mina nav-ikoner. Samt så har varje projectkort ett click-event som tar användaren till respektive repository på github. Min text på startsidan generas med en funktion som får den att skrivas ut en bokstav i taget. Sen är även själva Navbarens funktionalitet skriven i javascript. Det finns en loadingscreen som dyker upp om API-call från github skulle vara långsam. Den är dynamiskt renderad i JS men helt och hållet gjort och stylad i CSS.
 
-## Vad du ska göra
+## Styrkor och brister
 
-Du ska bygga vidare på  u01 - Portfoliosida utifrån designskiss med Javascript. och se till att du följer följande kravställningar: 
+Styrkor i min sida är att den är clean och att jag själv kunde implementera den eftersträvade funktionaliteten på ett enkelt sätt.
 
-### CV i en fil:
-Dina egna utbildningar och tidigare arbetsplatser ska nu ersätta "About me"-sidan. Ta med så mycket som möjligt att ditt "riktiga CV", men iallafall minst tre poster av varje.
-Vilka utbildningar du läst och vilka tidigare arbeten du haft ska ligga i en separat fil i JSON-format. Denna JSON-fil ska läsas och och generera ditt CV på den tidigare motsvarigheten av "About me" sidan.
+### Styrkor
 
+Stor del i det jag gjort på min github är via andra i gruppen och då som "collaborator". Detta gjorde att jag inte via en enkel API-call kunde nå dessa utan en TOKEN. Denna TOKEN gjorde så jag inte kunde pusha upp den till classroom-branchen. Om jag lyckades kringå den "secretinställningen" som det flaggades för i terminalen. Så när man testade sidan sen så ufördes inte API-anropet. Och därför genererades inte mina saker på sidan. Så jag fick lägga in så mycket som jag hann på min egen sida och sedan använda mig av enkel API-URL för att komma åt dom. Så inte så mycket som jag ville genererades på min sida. Men principen är densamma.
 
-### Interaktiva scripts:
-Din CV-sida ska innehålla minst två interaktiva JavaScript. Exempel kan vara en modal, slideshow, scroll-effekt, dölja/visa element, o.s.v
+Bristerna är också helt enkelt att jag hade en annan vision och att jag borde ha spenderat mer tid på att uppnå ett resultat som jag själv är nöjd med när det kommer till styling. Men pga tidsbrist och händelser blev det så att jag fick skala ner min önskan och göra sidan efter behov och krav istället.
 
-### Portfolio:
- Du publicerar minst två uppgifter / projekt från tidigare eller nuvarande studier / arbete inom HTML /CSS
+# Frågor
 
-### 👉  VG-krav
+## Vad kan man utveckla m.h.a av Javascript inom frontend?
 
-Din portfolio ska utökas så att den hämtar in publika projekt som finns i din egen Github via API. Den ska visa dessa projekt i din portfolio med namn och beskrivning.
+Man kan göra sidan mer dynamisk och implementera mer interaktivitet. Man kan på ett enkelt sätt lyssna efter events på sidan så som "click", "scroll", "mouseover" med många fler för att sedan kontrollera och styra vad som ska hända och hur sidan ska ändras baserat på eventsen. Det är också använbart om man ska göra sidor mer flytande eller hålla på med animationer. Man kan uppdatera sidan på villkor som man själv skriver. Vilket kan va användbart vi datahantering eller om användaren använder sig av en chatfunktion eller helt enkelt ändrar något på sidan. Man kan hämta data via API:er för att sedan presentera på sin sida efter behag. Man kan alltså använda den data som kommer från en backend för att visa och presentera på sin front end-del.
 
-Du får gärna ha både dessa projekt och andra som genereras utifrån JSON-data om du känner för det, eller så ersätter du projekten så det bara är dina Github-projekt. Eventuellt kan du behöva komplettera datan från Github API med t.ex bilder ifrån JSON-datan.
+### Vad är JSON och hur används det inom frontend?
 
-När hämtningen av projekten sker ska det finnas information om att projekten håller på att ladda in så att besökaren inte undrar varför sidan först är tom.
+JSON står för "JavaScript Object Notation". Det är sättet informationen från api-calls eller back end ofta skickas i till frontend för att sedan konverteras och användas inom frontend. Det är i princip ett javascript-object med nyckel och värde-par. Formatet gör att informationen som skickas blir "lättare" och inte lika prestandakrävande. Det är alltså sättet man kommunicerar med en server. Antingen via att man skickar användardata till den eller om man får data från servern via API-anrop.
 
+### Vad är HTTP och varför bör man som frontendutvecklare ha kunskap om det och dess protokoll?
 
-
-### Tekniska krav:
-* Validerad med 0 fel på https://validator.w3.org
-* Inga errors i Console
-
-### Sammantfattning av projekt + teoretiska frågor
-
-1. Du sammanfattar ditt projekt i README.md och reflekterar kring styrkor och ev brister. Max 500 ord.
-2. Du svarar på dessa frågor (max 800 ord):
-
-Vad kan man utveckla m.h.a av Javascript inom frontend?
-Vad är JSON och hur används det inom frontend?
-Vad är HTTP och varför bör man som frontendutvecklare ha kunskap om det och dess protokoll?
-
-
-## Kriterier för bedömning
-
-
-Icke Godkänd (IG), Godkänd (G) eller Väl Godkänd (VG)
-
-### Godkänd (G)
-Din portfolio-sida uppfyller alla krav enligt kravspecifikationen.
-Du visar att du kan utan allvarliga brister eller missar utveckla denna portfoliosida enligt kraven
-Du sammanfattar ditt projekt samt ger ett översiktligt och korrekt svar på frågorna
-
-
-### Väl Godkänd (VG)
-
-Din portfolio-sida uppfyller alla krav enligt kravspecifikationen samt VG-kraven
-Du uppvisar en mer avancerad förståelse för Git genom att jobba med en developer-branch som du sedan mergar i main
-Du visar att du kan utan brister, eller bara i sådan omfattning att de knappt märks eller påverkar slutresultatet
-
-
-### Börja uppgift / Din inlämning
-* Du börjar och lämnar in din uppgift genom Github Classroom på denna länk.
-* Återkoppling ges i Canvas
-
-
-
-
-
-
-
-
-
-
-
-# 
+HTTP står för "Hypertext Transfer Protocol". Det är ett sätt att komminucera med en server, eller vilka regler som ska förhållas till när det komminuceras. Man kan använda HTTP för att prata med servern via exempelvis olika metoder som gör att man kan hämta, skapa ny, radera eller uppdatera data via "GET", "POST", "DELETE", "PUT". Dessa är bra att veta om man komminucerar med en server oc här metoder som ska användas när man gör olika API-anrop beroende på vad man vill göra. API-anropet svarar också med olika svarskoder som kan användas vid exempelvis felsökning eller om man ska presentera att allt gick bra vid anropet från klienten. Ett api-anrop görs ofta med en URL (dit man vill göra anropet), en metod (GET,PUT,DELETE osv beroende på vad man vill göra), header (används för exempelvis autentisering) och eventuellt Body (om man vill skicka data från användaren till servern). Servern svarar oftast med liknande: header (data om svaret), en statuskod (olika beroende på serverfel eller "not found" och liknande) och body (det är alltså informationen som begärdes). Det är som frontendutvecklare viktigt att ha koll på protokollet då det används väldigt mycket och ´det är viktigt att använda rätt sak på rätt plats. Samt så tror jag till största del att det hjälper att ha koll då vid eventuella fel så kan man använda sig av felkoderna (statuskoderna) för att snabbt identifiera vad som är fel. Samt så underlättar det för att utveckla en säker och trygg websida/app.
