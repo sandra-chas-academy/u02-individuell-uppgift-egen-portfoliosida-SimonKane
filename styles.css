@@ -185,6 +185,7 @@ section h1 {
   border-radius: 10px 10px 0 0;
   height: 200px;
   border: 3px solid;
+  object-fit: cover;
 }
 .project-info {
   height: 250px;
@@ -201,6 +202,11 @@ section h1 {
 .project-info > p {
   font-size: 150%;
   text-align: center;
+}
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
 }
 
 footer {
@@ -222,21 +228,34 @@ footer {
 .hidden {
   display: none;
 }
-.loading-placeholder {
-  width: 300px;
+.spinner {
+  width: 200px;
   height: 200px;
-  background: linear-gradient(90deg, #e0e0e0 25%, #f2f2f2 50%, #e0e0e0 75%);
-  background-size: 400% 100%;
-  animation: shimmer 1.5s infinite;
-  margin: 10px;
-  border-radius: 8px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #74c0fc 20%, #252438);
+  animation: rotate 1s infinite linear;
+  position: absolute;
+  justify-self: center;
+  margin-top: 300px;
 }
-@keyframes shimmer {
+.spinner::after {
+  content: "";
+  height: 160px;
+  width: 160px;
+  background-color: #252438;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
   0% {
-    background-position: -400px 0;
+    transform: rotate(0deg);
   }
   100% {
-    background-position: 400px 0;
+    transform: rotate(360deg);
   }
 }
 

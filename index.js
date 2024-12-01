@@ -8,16 +8,19 @@ let headline = "";
 const text =
   "I am an aspiring coder, passionate about learning and growing in the world of programming. Currently, I am immersing myself in various coding languages, including JavaScript, Python, and C#. My goal is to build a strong foundation in software development and expand my skill set to become a versatile programmer capable of tackling a wide range of projects. In addition to coding, I enjoy exploring the logic behind technology and understanding how different systems work together to create innovative solutions. My learning journey is driven by curiosity and the desire to create something meaningful that can impact others positively. And yes i look like Mandelman";
 
-const token =
-  "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";
+const token = "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";
+
 async function fetchGitAPI() {
   const projectDiv = document.querySelector(".project-cards");
+  projectDiv.innerHTML = `<div class="spinner"></div>`;
   try {
     await fetch(
       "https://api.github.com/user/repos?affiliation=owner,collaborator",
       {
+        method: `GET`,
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
       }
     )
@@ -27,8 +30,11 @@ async function fetchGitAPI() {
         data.forEach((repo) => {
           const projectCard = document.createElement("div");
           projectCard.classList.add("project-card");
-          projectCard.innerHTML = `<img class="project-image" src="./img/profilepic.jpg" alt=""> <div class="project-info"><p>{ ${repo.name} }</p></div>`;
+          projectCard.innerHTML = `<img class="project-image" src="./img/${repo.name}.png" alt=""> <div class="project-info"><p>{ ${repo.name} }</p></div>`;
           projectDiv.append(projectCard);
+          projectCard.addEventListener("click", () => {
+            window.open(repo.html_url, "_blank");
+          });
         });
       });
   } catch (error) {
@@ -125,14 +131,22 @@ navLinks.addEventListener("click", (e) => {
     mainContainer.innerHTML = "";
     const projectsHTML = `<section class="projects">
   <h1>${headline}</h1>
-      <div class="project-cards">
-       <div class="loading-placeholder"></div>
-        <div class="loading-placeholder"></div>
-        <div class="loading-placeholder"></div>
+      <div class="project-cards">      
       </div>
     </section>`;
     mainContainer.innerHTML = projectsHTML;
-    // fetchGitAPI();
+    fetchGitAPI();
+  }
+  if (button && button.classList.contains("contact-btn")) {
+    headline = "Contact Me:";
+    mainContainer.innerHTML = "";
+    const contactHTML = `<section class="contact">
+  <h1>${headline}</h1>
+          <h2>simon.kaneborn@chasacademy.se</h2>
+          <p>OR SWISH</p>
+          <h2>073434****</h2>
+    </section>`;
+    mainContainer.innerHTML = contactHTML;
   }
 });
 
