@@ -98,13 +98,22 @@ section {
   text-shadow: 0 0 3px white;
   justify-content: center;
 }
-
-.main-page > img {
+.img-container {
+  height: 320px;
+  width: 320px;
+  background-color: #74c0fc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 10px;
+  box-shadow: 0 0 20px #74c0fc;
+}
+img {
   height: 300px;
   border-radius: 50%;
   width: 300px;
   object-fit: cover;
-  margin: 40px auto;
 }
 section h1 {
   font-size: 3rem;
@@ -149,6 +158,50 @@ section h1 {
   text-align: center;
   margin: 10px 0 20px 0;
 }
+.project-cards {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  overflow: hidden;
+  align-items: center;
+}
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #74c0fc;
+  margin: 20px 0;
+  width: 80%;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+.project-card:hover {
+  box-shadow: 0 0 30px;
+  scale: 1.05;
+}
+.project-image {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  height: 200px;
+  border: 3px solid;
+}
+.project-info {
+  height: 250px;
+  background: #ccddeb;
+  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #143e5e;
+  font-weight: bold;
+  text-shadow: 0 0 4px;
+}
+.project-info > p {
+  font-size: 150%;
+  text-align: center;
+}
 
 footer {
   color: #74c0fc;
@@ -168,6 +221,23 @@ footer {
 
 .hidden {
   display: none;
+}
+.loading-placeholder {
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(90deg, #e0e0e0 25%, #f2f2f2 50%, #e0e0e0 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.5s infinite;
+  margin: 10px;
+  border-radius: 8px;
+}
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
 }
 
 @media (min-width: 750px) {
@@ -202,5 +272,15 @@ footer {
   }
   .cv p {
     font-size: 1rem;
+  }
+  .project-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    padding: 40px;
+    width: 100%;
+  }
+  .project-card {
+    width: 100%;
   }
 }

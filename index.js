@@ -8,30 +8,55 @@ let headline = "";
 const text =
   "I am an aspiring coder, passionate about learning and growing in the world of programming. Currently, I am immersing myself in various coding languages, including JavaScript, Python, and C#. My goal is to build a strong foundation in software development and expand my skill set to become a versatile programmer capable of tackling a wide range of projects. In addition to coding, I enjoy exploring the logic behind technology and understanding how different systems work together to create innovative solutions. My learning journey is driven by curiosity and the desire to create something meaningful that can impact others positively. And yes i look like Mandelman";
 
+const token =
+  "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";
+async function fetchGitAPI() {
+  const projectDiv = document.querySelector(".project-cards");
+  try {
+    await fetch(
+      "https://api.github.com/user/repos?affiliation=owner,collaborator",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        projectDiv.innerHTML = "";
+        data.forEach((repo) => {
+          const projectCard = document.createElement("div");
+          projectCard.classList.add("project-card");
+          projectCard.innerHTML = `<img class="project-image" src="./img/profilepic.jpg" alt=""> <div class="project-info"><p>{ ${repo.name} }</p></div>`;
+          projectDiv.append(projectCard);
+        });
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function fetchCV() {
   try {
     await fetch("about.json")
       .then((res) => res.json())
       .then((data) => {
-        let cvSection = document.querySelector(".cv");
-        let cvDiv = document.createElement("div");
-
-        let cvHeadline = document.createElement("h1");
+        const cvSection = document.querySelector(".cv");
+        const cvDiv = document.createElement("div");
+        const cvHeadline = document.createElement("h1");
         cvHeadline.classList.add("cv-header");
         cvHeadline.textContent = "CV: Education";
         cvDiv.append(cvHeadline);
-        let workHeadline = document.createElement("h1");
+        const workHeadline = document.createElement("h1");
         workHeadline.classList.add("cv-header");
-
         workHeadline.textContent = "CV: Work";
 
-        data.education.forEach((school, i) => {
+        data.education.forEach((school) => {
           cvDiv.innerHTML += `<div class="education">
             <h2>${school.institution}:</h2>
             <p>${school.location}</p>
             <p>${school.start_year} - ${school.end_year}</p>`;
         });
-
         cvSection.append(cvDiv);
 
         let workDiv = document.createElement("div");
@@ -73,8 +98,10 @@ window.addEventListener("resize", () => {
 
 navLinks.addEventListener("click", (e) => {
   const button = e.target.closest("button");
-  linkMenu.classList.add("hidden");
-  navBar.classList.add("width");
+  if (window.innerWidth <= 750) {
+    linkMenu.classList.add("hidden");
+    navBar.classList.add("width");
+  }
   if (button && button.classList.contains("about-me-btn")) {
     headline = "Simon Kane";
     const aboutMeHTML = `<section class="main-page">
@@ -92,6 +119,20 @@ navLinks.addEventListener("click", (e) => {
     </section>`;
     mainContainer.innerHTML = cvHTML;
     fetchCV();
+  }
+  if (button && button.classList.contains("projects-btn")) {
+    headline = "Projects";
+    mainContainer.innerHTML = "";
+    const projectsHTML = `<section class="projects">
+  <h1>${headline}</h1>
+      <div class="project-cards">
+       <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+      </div>
+    </section>`;
+    mainContainer.innerHTML = projectsHTML;
+    // fetchGitAPI();
   }
 });
 
