@@ -1,0 +1,50 @@
+{
+  "name": "Simon Kane",
+  "about": "Aspiring coder with a diverse educational background and work experience.",
+  "education": [
+    {
+      "institution": "SAM Music",
+      "location": "Jakobsberg Gymnasium",
+      "start_year": 2006,
+      "end_year": 2009
+    },
+    {
+      "institution": "Santa Monica College",
+      "location": "Los Angeles",
+      "start_year": 2012,
+      "end_year": 2013
+    },
+    {
+      "institution": "Chas Academy",
+      "location": "Johanneshov",
+      "start_year": 2024,
+      "end_year": "Present"
+    }
+  ],
+  "work_experience": [
+    {
+      "title": "Salesperson",
+      "company": "Finlandia",
+      "description": "Sold sofas and assisted customers.",
+      "location": "Sweden",
+      "start_year": "Summer 2007",
+      "end_year": "Summer 2007"
+    },
+    {
+      "title": "Sales Assistant",
+      "company": "Karamellkungen",
+      "description": "Managed candy displays and assisted customers.",
+      "location": "Sweden",
+      "start_year": 2007,
+      "end_year": 2008
+    },
+    {
+      "title": "Healthcare Assistant",
+      "company": "Jakobsberg Vårdcentral",
+      "description": "Provided support to the healthcare team and assisted patients.",
+      "location": "Sweden",
+      "start_year": 2012,
+      "end_year": "Present"
+    }
+  ]
+}
